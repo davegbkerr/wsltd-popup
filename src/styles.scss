@@ -1,0 +1,187 @@
+$fade-transition-speed: 500ms;
+$serif-font: "source-serif-pro",serif;
+$sans-font: "source-sans-pro",sans-serif;
+$breakpoint: 768px;
+
+body {
+  height: 10000px;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.fader-enter {
+  opacity: 0;
+  &.fader-enter-active {
+    opacity: 1;
+    transition: opacity $fade-transition-speed ease-in;
+  }
+}
+
+.fader-appear {
+  opacity: 0;
+  &.fader-appear-active {
+    opacity: 1;
+    transition: opacity $fade-transition-speed ease-in;
+  }
+}
+
+.fader-leave {
+  opacity: 1;
+  &.fader-leave-active {
+    opacity: 0;
+    transition: opacity $fade-transition-speed ease-in;
+  }
+}
+
+.popupWrapper {
+  height: calc(100vh - 100px);
+  position: fixed;
+  z-index: 9999999999;
+  width: 100%;
+  top: 50px;
+
+  @media only screen and (min-width: $breakpoint) {
+    min-height: 570px;
+  }
+
+  .popupContent {
+    position: relative;
+    z-index: 1041;
+    height: 100%;
+
+    @media only screen and (min-width: $breakpoint) {
+      max-width: 550px;
+      margin: 0 auto;
+      max-height: 570px;
+    }
+
+    .popupHeader {
+      .closeButton {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        background-color: #ffffff;
+        padding: 6px;
+        border-radius: 50%;
+        text-align: center;
+        cursor: pointer;
+        z-index: 100;
+
+        &::after {
+          content: 'x';
+          font-size: 40px;
+          top: -4px;
+          position: absolute;
+          color: black;
+          left: 15px;
+        }
+
+        @media only screen and (min-width: $breakpoint) {
+          top: 50px;
+          right: 75px;
+        }
+      }
+    }
+
+    .popupBody {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-radius: 10px;
+      background: #b94962;
+      text-align: center;
+      color: #FFF;
+
+      @media only screen and (min-width: $breakpoint) {
+        // I stole this from your website - hope you don't mind!
+        background: url(//cdn.optimizely.com/img/7047440350/df767aa93b364494a7d880e517ec033f.png) no-repeat center center;
+      }
+
+      .popupCopy {
+        h3 {
+          font-family: $serif-font;
+          font-weight: normal;
+          font-size: 2rem;
+          span {
+            font-weight: bold;
+          }
+
+          &.success {
+            font-size: 1.5rem;
+            max-width: 400px;
+            margin: 0 auto;
+          }
+        }
+
+        p {
+          font-family: $sans-font;
+          font-size: 1.25rem;
+        }
+      }
+
+      .popupTimer {
+        p {
+          font-family: $sans-font;
+          font-size: 2rem;
+          margin-bottom: 0;
+          &.time {
+            font-size: 3rem;
+            margin-top: 0;
+          }
+        }
+      }
+
+      .popupSignup {
+        font-family: $sans-font;
+
+        p {
+          font-size: 0.7rem;
+        }
+
+        .signupForm {
+          input {
+
+            &[type="email"] {
+              padding: 5px;
+              color: black;
+              border: none;
+            }
+
+            &[type="submit"] {
+              height: 29px;
+              border: none;
+              background: #3a8d2c;
+              color: #FFF;
+              width: 80px;
+            }
+          }
+
+          .error {
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #83d3c0;
+          }
+        }
+      }
+    }
+  }
+
+  .popupOverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    background-color: #758493;
+    opacity: 0.55;
+  }
+}
