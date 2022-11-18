@@ -14,7 +14,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^2.1.1",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-currency-formatter": "^1.1.0",
